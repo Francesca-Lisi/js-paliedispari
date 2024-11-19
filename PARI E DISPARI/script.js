@@ -36,4 +36,31 @@ console.log(numeroPlayer)
 
 const numeroComputer = Math.floor(Math.random() * 5) + 1;
 
-// Somma
+console.log(numeroComputer)
+
+// SOMMA ------------------------------------------------------
+
+const somma = numeroPlayer + numeroComputer 
+
+console.log(somma);
+
+// CONTROLLO DELLA SOMMA SE PARI O DISPARI --------------------
+let risultato;
+
+if (somma % 2) {
+  risultato = 'DISPARI'
+} else {
+  risultato = 'PARI'
+}
+console.log(risultato)
+
+// STABILIRE VINCITORE --------------------
+let message;
+
+if (risultato === giocataPlayer) {
+  message = 'Hai Vinto!'
+} else {
+  message = 'Hai Perso!'
+} 
+
+console.log(message);
