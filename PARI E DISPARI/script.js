@@ -10,8 +10,8 @@ let giocataPlayer;
 let giocataValida = false;
 
 do {
-  giocataPlayer = prompt('Gioca PARI o DISPARI');
-  if(giocataPlayer.toUpperCase() === 'PARI' || giocataPlayer.toUpperCase() === 'DISPARI'){
+  giocataPlayer = prompt('Gioca PARI o DISPARI').toUpperCase();
+  if(giocataPlayer === 'PARI' || giocataPlayer === 'DISPARI'){
     giocataValida = true;
   }
 } while (!giocataValida)
@@ -32,11 +32,18 @@ while(!isNumberValid){
 
 console.log(numeroPlayer)
 
-// NUMERO DA 1 A 5 COMPUTER ------------------------------------
+//NUMERO DA 1 A 5 COMPUTER ---------------------(usare FUNZIONE)
 
-const numeroComputer = Math.floor(Math.random() * 5) + 1;
+let numeroComputer;
+
+function getRandomNumber(min, max){
+  return Math.floor(Math.random() * (max - min + 1) + min)
+}
+ 
+numeroComputer = getRandomNumber(1,5);
 
 console.log(numeroComputer)
+
 
 // SOMMA ------------------------------------------------------
 
@@ -44,20 +51,25 @@ const somma = numeroPlayer + numeroComputer
 
 console.log(somma);
 
-// CONTROLLO DELLA SOMMA SE PARI O DISPARI --------------------
-let risultato;
+// CONTROLLO DELLA SOMMA SE PARI O DISPARI -------(usare FUNZIONE)
 
+// let risultato;
+
+function checkRisultato() {
 if (somma % 2) {
-  risultato = 'DISPARI'
+  return 'DISPARI'
 } else {
-  risultato = 'PARI'
+  return 'PARI'
 }
-console.log(risultato)
+}
 
-// STABILIRE VINCITORE --------------------
+
+console.log(checkRisultato())
+
+// STABILIRE VINCITORE ---------------------------------------
 let message;
 
-if (risultato === giocataPlayer) {
+if (checkRisultato() === giocataPlayer) {
   message = 'Hai Vinto!'
 } else {
   message = 'Hai Perso!'
